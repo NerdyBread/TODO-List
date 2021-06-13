@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Add task</title>
+	</head>
+	<body>
+		<form action="" method="post" novalidate>
+			{{ form.hidden_tag() }}
+			<p>
+				{{ form.task.label }} <br>
+				{{ form.task(size=32) }}
+				{% for error in form.task.errors %}
+				<span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+
+			<p>
+				{{ form.urgent() }} {{ form.urgent.label }}
+			</p>
+			
+			<p>
+				{{ form.submit() }}
+			</p>
+		</form>
+	</body>
+</html>
