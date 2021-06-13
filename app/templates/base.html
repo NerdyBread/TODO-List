@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% if title %}
+		<title>{{ title }} - Todo list</title>
+		{% else %}
+		<title>Welcome to Todo List</title>
+		{% endif %}
+	</head>
+	<body>
+		<div>
+			Todo list: 
+				<a href="{{ url_for('index') }}">Home</a>
+				<a href="{{ url_for('login') }}">Login</a>
+				<a href="{{ url_for('tasks') }}">Tasks</a>
+				<a href="{{ url_for('add') }}">Add task</a>
+		</div>
+		{% block content %}{% endblock %}
+	</body>
+			

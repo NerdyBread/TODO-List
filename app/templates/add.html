@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Add task</title>
-	</head>
-	<body>
+{% extends "base.html" %}
+{% block content %}
 		<form action="" method="post" novalidate>
 			{{ form.hidden_tag() }}
 			<p>
@@ -22,5 +18,4 @@
 				{{ form.submit() }}
 			</p>
 		</form>
-	</body>
-</html>
+{% endblock %}
