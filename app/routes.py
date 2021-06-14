@@ -72,6 +72,7 @@ def signUp():
         return redirect(url_for('login'))
     return render_template('signUp.html', title='Sign Up', form=form)
 
+
 # For the task delete buttons
 @app.route("/delete/<index>")
 def delete(index):
