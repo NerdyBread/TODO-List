@@ -5,7 +5,7 @@
 		<div class="task">
 			<p>
 				{{ task }}
-				<form method="get" action="{{ url_for('delete', index=loop.index) }}">
+				<form method="get" action="delete/{{ loop.index }}">
 					<button type="submit">Delete</button>
 				</form>
 			</p>
@@ -16,7 +16,7 @@
 		<div class="urgent-task">
 			<p>
 				{{ task }} 
-				<form method="get" action="{{ url_for('delete', 'urgent', index=loop.index) }}">
+				<form method="get" action="delete/urgent/{{ loop.index }}">
 					<button type="submit">Delete</button>
 				</form>
 			</p>
