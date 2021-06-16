@@ -54,6 +54,7 @@ def login():
 	return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/logout')
+@login_required
 def logout():
 	logout_user()
 	return redirect(url_for('index'))
@@ -75,6 +76,7 @@ def signUp():
 
 # For the task delete buttons
 @app.route("/delete/<index>")
+@login_required
 def delete(index):
 	count = 0
 	tasks = current_user.tasks
@@ -89,6 +91,7 @@ def delete(index):
 	return redirect(url_for('tasks'))
 
 @app.route("/delete/urgent/<index>")
+@login_required
 def delete_urgent(index):
 	count = 0
 	tasks = current_user.tasks
