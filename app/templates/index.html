@@ -2,4 +2,8 @@
 
 {% block content %}
 <h1>Welcome to TODO list.com or something</h1>
+{% if current_user.is_anonymous %}
+<a href="/signUp">Create a new account</a>
+<a href="/login">Sign in</a>
+{% endif %}
 {% endblock %}
