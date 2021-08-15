@@ -2,26 +2,31 @@
 {% block content %}
 		<h2>Tasks</h2>
 		{% for task in tasks %}
-		<div class="task">
-			<p>
-				{{ task }}
-				<form method="get" action="delete/{{ loop.index }}">
-					<button type="submit">Delete</button>
-				</form>
-			</p>
-		</div>
+			<!---<div class="task">
+				<p style="display: inline;">
+					{{ task }}
+				</p>
+				<a class="btn btn-danger" href="delete/{{ loop.index }}" role="button">Delete</a>
+			</div>--->
+			<div class="task">
+				<p>
+					{{ task }} 
+					<form method="get" action="delete/{{ loop.index }}">
+						<button type="submit" class="btn btn-danger">Delete</button>
+					</form>
+				</p>
+			</div>
 		{% endfor %}
 		<h2>Urgent Tasks</h2>
 		{% for task in urgent_tasks %}
-		<div class="urgent-task">
-			<p>
-				{{ task }} 
-				<form method="get" action="delete/urgent/{{ loop.index }}">
-					<button type="submit">Delete</button>
-				</form>
-			</p>
-		</div>
+			<div class="urgent-task">
+				<p>
+					{{ task }} 
+					<form method="get" action="delete/urgent/{{ loop.index }}">
+						<button type="submit" class="btn btn-danger">Delete</button>
+					</form>
+				</p>
+			</div>
 		{% endfor %}
-
 		<a href="/add">Add a task</a>
 {% endblock %}

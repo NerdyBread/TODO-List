@@ -1,25 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+		<style>
+			* {
+				margin-left: 10px;
+			}
+
+			nav {
+				margin-left: -10px;
+			}
+		</style>
 		{% if title %}
-		<title>{{ title }} - Todo list</title>
+		<title>{{ title }} - TodoList</title>
 		{% else %}
-		<title>Welcome to Todo List</title>
+		<title>Welcome to TodoList</title>
 		{% endif %}
 	</head>
 	<body>
-		<div>
-			Todo list: 
-				<a href="{{ url_for('index') }}">Home</a>
-				<a href="{{ url_for('signUp') }}">Sign Up</a>
-				{% if current_user.is_anonymous %}
-				<a href="{{ url_for('login') }}">Login</a>
-				{% else %}
-				<a href="{{ url_for('logout') }}">Logout</a>
-				{% endif %}
-				<a href="{{ url_for('tasks') }}">Tasks</a>
-				<a href="{{ url_for('add') }}">Add task</a>
-		</div>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+			  <a class="navbar-brand" href="/index">TodoList</a>
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				  	{% if current_user.is_authenticated %}
+						<li class="nav-item">
+							<a class="nav-link" href="/tasks">Tasks</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/add">Add a task</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/logout">Logout</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/account">Account</a>
+						</li>
+				  	{% else %}
+						<li class="nav-item">
+							<a class="nav-link" href="/login">Login</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/signUp">Sign Up</a>
+						</li>
+				  	{% endif %}
+				</ul>
+			  </div>
+			</div>
+		  </nav>
 		<hr>
 		{% with messages = get_flashed_messages() %}
         {% if messages %}
