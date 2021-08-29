@@ -102,3 +102,10 @@ def delete_urgent(index):
 			db.session.delete(task)
 			db.session.commit()
 	return redirect(url_for('tasks'))
+
+@app.route("/account")
+@login_required
+def account():
+	return render_template('account.html', title="Account")
+
+# Account management methods

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+	<p>
+		<form action="changeUsername" method="get">
+			<button type="submit" class="btn btn-primary">Change username</button>
+		</form>
+	</p>
+	<p>
+		<form action="changeEmail" method="get">
+			<button type="submit" class="btn btn-primary">Change email</button>
+		</form>
+	</p>
+	<p>
+		<form action="updateProfilePicture" method="get">
+			<button type="submit" class="btn btn-danger">Delete account</button>
+		</form>
+	</p>
+	<p>
+		<form action="deleteAccount" method="get">
+			<button type="submit" class="btn btn-danger">Delete account</button>
+		</form>
+	</p>
+{% endblock %}
